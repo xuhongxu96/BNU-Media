@@ -48,10 +48,12 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
-		$query = Album::find()->joinWith("category")->limit(5);
-		$query->joinWith(['category', 'categoryRelationship']);
+		$query = Album::find()->limit(5);
+		$query->leftJoin('bnm_category_relationships', 'bnm_category_relationships.media = bnm_media.ID');
+		$query->leftJoin('bnm_categories', 'bnm_categories.ID = bnm_category_relationships.category');
 		$query->distinct();
-		$query->
+		$query->andWhere(['bnm_categories.name' => '展示']);
+		echo $query->createCommand()->sql;
 		$slider = [];
 		foreach ($query->all() as $item) {
 			$slider[] = [
