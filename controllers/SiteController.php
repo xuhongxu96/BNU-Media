@@ -53,7 +53,7 @@ class SiteController extends Controller
 		$query->leftJoin('bnm_categories', 'bnm_categories.ID = bnm_category_relationships.category');
 		$query->distinct();
 		$query->andWhere(['bnm_categories.name' => '展示']);
-		echo $query->createCommand()->sql;
+		
 		$slider = [];
 		foreach ($query->all() as $item) {
 			$slider[] = [
