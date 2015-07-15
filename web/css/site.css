@@ -1,0 +1,276 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* Media-List */
+
+.media-list {
+	list-style: none;
+}
+
+.media-list > li {
+	position: relative;
+	margin: 0.2em;
+	margin-bottom: 1.8em;
+	width: 12em;
+	float: left;
+}
+
+.media-list > li > a {
+	position: relative;
+	display: block;
+	width: 12em;
+	height: 18em;
+	color: #555;
+	padding: 0.5em;
+	text-decoration: none;
+	border: solid 1px #eee;
+	background-color: #fafafa;
+	transition: all 0.3s;
+}
+
+.media-list > li > a:hover {
+	color: #333;
+	background-color: #eee;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.media-list > li .media-content {
+	text-align: center;
+}
+.media-list > li .media-header {
+	color: #333;
+	margin: 4px 0;
+	font-size: 1.2em;
+	font-weight: bold;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	transition: all 0.3s;
+}
+
+.media-list > li > a:hover .media-header {
+	color: black;
+}
+
+.media-list > li .media-meta {
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	text-align: right;
+}
+.media-list > li .media-meta,
+.media-list > li time {
+	display: block;
+	margin: 0;
+	font-size: 0.85em;
+}
+
+.media-list .categories {
+	height: 1.5em;
+	position: absolute;
+	background-color: #f5f5f5;
+	width: 100%;
+	z-index: 999;
+	border: solid 1px #ddd;
+	border-top: none;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	transition: opacity 0.3s;
+}
+
+.media-list > li:hover .categories {
+	height: auto;
+}
+
+.wx-rb:before,
+.wx-rb:after, 
+.clear:before,
+.clear:after {
+	content: ' ';
+	display: block;
+	clear: both;
+}
+
+.nav-sort a,
+.categories a {
+	display: block;
+	float: left;
+	line-height: 1.2em;
+	font-size: 0.85em;
+	color: black;
+	background-color: #ddd;
+	text-decoration: none;
+	padding: 0.1em 0.3em;
+	margin: 0.1em;
+	border: solid 0.1em #aaa;
+	border-radius: 4px;
+	overflow: visible;
+	transition: all 0.3s;
+}
+
+.categories a.active,
+.categories a:hover {
+	color: white;
+	background-color: #333;
+	border: solid 0.1em black;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.search .reset,
+.categories .del {
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-left: 8px;
+}
+
+.search .reset:hover,
+.categories .del:hover {
+	background-color: #eee;
+	border: solid 1px #faa;
+	box-shadow: 0 0 4px rgba(255, 0, 0, 0.3);
+	color: red;
+}
+
+.nav-sort a.active,
+.nav-sort a:hover {
+	color: white;
+	background-color: #333;
+	border: solid 0.1em black;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-sort.asc a.active:after {
+	display: inline;
+	content: ' ↑';
+}
+.nav-sort.desc a.active:after {
+	display: inline;
+	content: ' ↓';
+}
+
+.search .form-group {
+	float: left;
+	margin: 8px;
+}
+
+.search .form-control {
+	width: auto;
+	float: right;
+}
+
+.filter {
+	margin: 8px;
+}
+
+.filter span {
+	font-weight: bolder;
+}
+
+.carousel-caption {
+	text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.navbar-inverse {
+	opacity: 0.85;
+}
+
+.img_box2 {
+	float: right;
+}
+
+.wx-rb {
+	border-bottom: solid 1px #ddd;
+}
