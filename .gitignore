@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+config/db.php
+web/uploads/
 # phpstorm project files
 .idea
 
