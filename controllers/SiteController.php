@@ -48,7 +48,7 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
-		$query = Album::find()->limit(5);
+		$query = Album::find();
 		$query->leftJoin('bnm_category_relationships', 'bnm_category_relationships.media = bnm_media.ID');
 		$query->leftJoin('bnm_categories', 'bnm_categories.ID = bnm_category_relationships.category');
 		$query->distinct();
@@ -58,7 +58,7 @@ class SiteController extends Controller
 		foreach ($query->all() as $item) {
 			$slider[] = [
 				'content' => "<img style='width:100%;' src='{$item->url}'>",
-				'caption' => "<h2>{$item->name}</h2><p>{$item->desp}</p>",
+				'caption' => "<h2>{$item->name}</h2>",
 				];
 		}
 		return $this->render('index', [

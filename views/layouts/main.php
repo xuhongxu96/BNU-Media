@@ -18,16 +18,25 @@ AppAsset::register($this);
 	<meta charset="<?= Yii::$app->charset ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?= Html::csrfMetaTags() ?>
-	<title>北师大·新媒体 - <?= Html::encode($this->title) ?></title>
+	<title>北师大·融媒体 - <?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
 </head>
 <body>
+
+<!-- 开发者 -->
+
+<!-- 北京师范大学 -->
+<!-- 信息科学与技术学院 -->
+<!-- 计算机科学与技术专业 -->
+<!-- 2014级 -->
+<!-- 许宏旭 -->
+<!-- 个人主页：http://xuhongxu.cn -->
 
 <?php $this->beginBody() ?>
 	<div class="wrap">
 <?php
 NavBar::begin([
-	'brandLabel' => '北师大 · 新媒体',
+	'brandLabel' => '北师大 · 融媒体',
 	'brandUrl' => Yii::$app->homeUrl,
 	'options' => [
 		'class' => 'navbar-inverse navbar-fixed-top',
@@ -69,23 +78,45 @@ echo Nav::widget([
 NavBar::end();
 ?>
 
+<?php if (!(isset($this->params['no_container']) && $this->params['no_container'])): ?>
 		<div class="container">
+<?php endif; ?>
 <?= Breadcrumbs::widget([
 	'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 	]) ?>
 			<?= $content ?>
+<?php if (!(isset($this->params['no_container']) && $this->params['no_container'])): ?>
 		</div>
+<?php endif; ?>
 	</div>
 
 	<footer class="footer">
 		<div class="container">
-			<p class="pull-left">&copy; <a href="http://www.bnu.edu.cn/" target="_blank">北京师范大学</a> <?= date('Y') ?></p>
-			<p class="pull-right"><?php echo "Developed by <a href='http://xuhongxu.cn' target='_blank'>xuhongxu96</a>"; ?></p>
+			<div class="show pull-left">
+				<img class="center-block img-responsive" width="64" src="images/bnu.png">
+				<h4>北京师范大学官方微信<br><small>公众号：bnuweixin</small></h4>
+			</div>
+			<div class="show pull-left">
+				<img class="center-block img-responsive" width="64" src="images/weibo.png">
+				<h4>北京师范大学官方微博</h4>
+			</div>
+			<p class="pull-right">
+内容维护：北京师范大学新闻中心 融媒体中心
+<br>
+<br>
+<strong>联系方式</strong>
+<br>
+邮箱：<a href="mailto:bnuweixin@126.com">bnuweixin@126.com</a>
+<br>
+电话：010-58807925
+</p>
+			</div>
 		</div>
 	</footer>
 
 <?php $this->endBody() ?>
 <script type="text/javascript">
+console.log("开发者\n\n北京师范大学\n信息科学与技术学院\n计算机科学与技术专业\n2014级\n许宏旭\nhttp://xuhongxu.cn");
 function vrImgHandle552(that,width,height){
  	calImg();
 	function calImg (){
@@ -174,9 +205,9 @@ function bind(ele, evt, func) {
 		var arr = [];
 		arr.push('<div class="wx-rb wx-rb3"  id="sogou_vr_',obj.classid,'_box_',templatenum,'">');
 		if(obj.imglink){
-			arr.push('<div class="img_box2"><a target="_blank" href="',obj.url,'" id="sogou_vr_',obj.classid,'_img_',templatenum,'" style="width:80px;height:80px;overflow:hidden;display:block;border:1px solid #ebebeb;"><img style="border:none;" onload="vrImgHandle552(this,80,80)" onerror="imgErr(this.parentNode)" alt="" src="http://img01.store.sogou.com/net/a/04/link?appid=100520031&url=',obj.imglink,'"></a></div>');
+			arr.push('<div class="img_box2"><a target="_blank" href="http://weixin.sogou.com',obj.url,'" id="sogou_vr_',obj.classid,'_img_',templatenum,'" style="width:80px;height:80px;overflow:hidden;display:block;border:1px solid #ebebeb;"><img style="border:none;" onload="vrImgHandle552(this,80,80)" onerror="imgErr(this.parentNode)" alt="" src="http://img01.store.sogou.com/net/a/04/link?appid=100520031&url=',obj.imglink,'"></a></div>');
 		}
-		arr.push('<div class="txt-box"><h4><a class="news_lst_tab" target="_blank" href="',obj.url,'" id="sogou_vr_',obj.classid,'_title_',templatenum,'">',obj.title,'</a></h4>');
+		arr.push('<div class="txt-box"><h4><a class="news_lst_tab" target="_blank" href="http://weixin.sogou.com',obj.url,'" id="sogou_vr_',obj.classid,'_title_',templatenum,'">',obj.title,'</a></h4>');
 		arr.push('<p>',cutLength(obj.content,240,'...',3),'</p>');
 		arr.push('<p class="s-p">',vrTimeHandle552(obj.lastModified),'</p>');
 		arr.push('</div></div>');
@@ -241,7 +272,7 @@ function bind(ele, evt, func) {
 	}
 	function init(id,enabled){
 		openid = id;
-		url = "http://weixin.sogou.com/gzhjs?cb=sogou.weixin.gzhcb&openid="+openid+"&eqs=WgsboB3gD5zfonozZYXTNuDhn1kdQ4RrOBFNYuJm6NY3Abi9HoOZcBbQOKMORcmfZE69v&ekv=7&page=";
+		url = "http://weixin.sogou.com/gzhjs?cb=sogou.weixin.gzhcb&openid="+openid+"&eqs=WgsboB3gD5zfonozZYXTNuDhn1kdQ4RrOBFNYuJm6NY3Abi9HoOZcBbQOKMORcmfZE69v&ekv=7&ext=alQlAlGoElnfLL-JJdRRpN1bNucYWidYTMRw6PU4FdVK37MUf80VBf9M5YMiZ8ur&page=";
 		start();
 		var name = document.getElementById("weixinname");
 		if(name&&name.innerHTML.length>0){
@@ -249,7 +280,7 @@ function bind(ele, evt, func) {
 			name = name.replace(/&amp;/g,'&');
 			if(document.getElementById("upquery"))document.getElementById("upquery").value=name;
 			if(document.getElementById("bottom_form_querytext"))document.getElementById("bottom_form_querytext").value=name;
-			document.title=name+"的公众号详情页 – 搜狗微信搜索";
+			//document.title=name+"的公众号详情页 – 搜狗微信搜索";
 		}
 	}
 	function cb(data){
@@ -263,7 +294,7 @@ function bind(ele, evt, func) {
 				show1(jmore);
 			}
 			var arr = [];
-			for(var i=0;i<items.length;i++){
+			for(var i=0;i</*items.length*/Math.min(items.length, 4);i++){
 				arr.push(template(xml2obj(items[i])));
 			}
 			startnum = 0;

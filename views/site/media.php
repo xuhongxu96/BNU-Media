@@ -15,22 +15,22 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-media">
 
-<form class="search clear" action="<?=Url::to(['site/' . $type])?>">
+<form class="form-inline search clear" action="<?=Url::to(['site/' . $type])?>">
 	<input type="hidden" name="r" value="site/<?=$type?>">
 	<input type="hidden" name="order" value="<?=$order?>">
 	<input type="hidden" name="cat" value="<?=$catUrl?>">
 	<input type="hidden" name="asc" value="<?=$asc?>">
 	<div class="form-group">
 		<label for="fname">名称：</label>
-		<input id="fname" name="name" type="text" value="<?=$name?>" class="form-control">
+		<input id="fname" name="name" type="text" value="<?=$name?>" class="form-control input-sm">
 	</div>
 	<div class="form-group">
 		<label for="fdesp">描述：</label>
-		<input id="fdesp" name="desp" type="text" value="<?=$desp?>" class="form-control">
+		<input id="fdesp" name="desp" type="text" value="<?=$desp?>" class="form-control input-sm">
 	</div>
 	<div class="form-group">
 		<label for="fauthor">作者：</label>
-		<input id="fauthor" name="author" type="text" value="<?=$author?>" class="form-control">
+		<input id="fauthor" name="author" type="text" value="<?=$author?>" class="form-control input-sm">
 	</div>
 	<div class="form-group">
 		<input type="submit" value="搜索" class="btn btn-primary">
