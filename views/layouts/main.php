@@ -100,6 +100,10 @@ NavBar::end();
 				<img class="center-block img-responsive" width="64" src="images/weibo.png">
 				<h4>北京师范大学官方微博</h4>
 			</div>
+			<div class="show pull-left">
+				<img class="center-block img-responsive" width="64" src="images/apk.png">
+				<h4>北京师范大学App</h4>
+			</div>
 			<p class="pull-right">
 内容维护：北京师范大学新闻中心 融媒体中心
 <br>

@@ -56,7 +56,7 @@ class Album extends Media
 		$this->user = Yii::$app->user->identity->ID;
 		$this->type = 0;
 		if ($this->imageFile) {
-			$name = $this->imageFile->baseName . Yii::$app->security->generateRandomString();
+			$name = md5($this->imageFile->baseName) . Yii::$app->security->generateRandomString();
 			$this->url = 'uploads/' . $name . '.' . $this->imageFile->extension;
 			$this->thumbnail = 'uploads/thumb_' . $name . '.' . $this->imageFile->extension;
 		}

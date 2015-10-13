@@ -56,7 +56,7 @@ class Video extends Media
 		$this->type = 1;
 		$url = '';
 		if ($this->imageFile) {
-			$name = $this->imageFile->baseName . Yii::$app->security->generateRandomString();
+			$name = md5($this->imageFile->baseName) . Yii::$app->security->generateRandomString();
 			$url = 'uploads/' . $name . '.' . $this->imageFile->extension;
 			$this->thumbnail = 'uploads/thumb_' . $name . '.' . $this->imageFile->extension;
 		}
