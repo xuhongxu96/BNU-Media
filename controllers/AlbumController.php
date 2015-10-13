@@ -79,12 +79,14 @@ class AlbumController extends Controller
 		$ret = $model->load($data);
 		$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 		if ($ret && $model->upload() && $model->save()) {
-			foreach($data['Album']['categoryID'] as $val) {
-				$relation = new CategoryRelationship();
-				$relation->media = $model->ID;
-				$relation->category = $val;
-				$relation->type = 0;
-				$relation->save();
+			if (isset($data['Album']['categoryID'])) {
+				foreach($data['Album']['categoryID'] as $val) {
+					$relation = new CategoryRelationship();
+					$relation->media = $model->ID;
+					$relation->category = $val;
+					$relation->type = 0;
+					$relation->save();
+				}
 			}
 			return $this->redirect(['view', 'id' => $model->ID]);
 		} else {
@@ -108,12 +110,14 @@ class AlbumController extends Controller
 		$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 		if ($ret && $model->upload() && $model->save()) {
 			CategoryRelationship::deleteAll(['media' => $id]);
-			foreach($data['Album']['categoryID'] as $val) {
-				$relation = new CategoryRelationship();
-				$relation->media = $id;
-				$relation->category = $val;
-				$relation->type = 0;
-				$relation->save();
+			if (isset($data['Album']['categoryID'])) {
+				foreach($data['Album']['categoryID'] as $val) {
+					$relation = new CategoryRelationship();
+					$relation->media = $id;
+					$relation->category = $val;
+					$relation->type = 0;
+					$relation->save();
+				}
 			}
 			return $this->redirect(['view', 'id' => $model->ID]);
 		} else {

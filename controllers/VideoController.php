@@ -78,12 +78,14 @@ class VideoController extends Controller
 		$ret = $model->load($data);
 		$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 		if ($ret && $model->upload() && $model->save()) {
-			foreach($data['Video']['categoryID'] as $val) {
-				$relation = new CategoryRelationship();
-				$relation->media = $model->ID;
-				$relation->category = $val;
-				$relation->type = 1;
-				$relation->save();
+			if(isset($data['Video']['categoryID'])) {
+				foreach($data['Video']['categoryID'] as $val) {
+					$relation = new CategoryRelationship();
+					$relation->media = $model->ID;
+					$relation->category = $val;
+					$relation->type = 1;
+					$relation->save();
+				}
 			}
 			return $this->redirect(['view', 'id' => $model->ID]);
 		} else {
@@ -107,12 +109,14 @@ class VideoController extends Controller
 		$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 		if ($ret && $model->upload() && $model->save()) {
 			CategoryRelationship::deleteAll(['media' => $id]);
-			foreach($data['Video']['categoryID'] as $val) {
-				$relation = new CategoryRelationship();
-				$relation->media = $id;
-				$relation->category = $val;
-				$relation->type = 1;
-				$relation->save();
+			if(isset($data['Video']['categoryID'])) {
+				foreach($data['Video']['categoryID'] as $val) {
+					$relation = new CategoryRelationship();
+					$relation->media = $id;
+					$relation->category = $val;
+					$relation->type = 1;
+					$relation->save();
+				}
 			}
 			return $this->redirect(['view', 'id' => $model->ID]);
 		} else {
