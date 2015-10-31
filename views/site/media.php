@@ -9,7 +9,8 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
 
-$this->title = ['图库','视频','手机报'][$typeid];
+$titles = array('图库','视频','手机报');
+$this->title = $titles[$typeid];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
