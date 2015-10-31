@@ -103,7 +103,7 @@ NavBar::end();
 			</div>
 			<div class="show pull-left">
 				<img class="center-block img-responsive" width="64" src="images/apk.png">
-				<h4>北京师范大学App</h4>
+				<h4><a href="http://media.bnu.edu.cn/BSNews.apk" target="_blank">北京师范大学App</a></h4>
 			</div>
 			<p class="pull-right">
 内容维护：北京师范大学新闻中心 融媒体中心
