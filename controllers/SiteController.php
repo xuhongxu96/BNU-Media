@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\Category;
 use app\models\Album;
 use app\models\Video;
+use app\models\Message;
 
 class SiteController extends Controller
 {
@@ -104,10 +105,19 @@ class SiteController extends Controller
 	public function actionMedia($type, $cat = 0, $order = 'date', $asc = 'desc', $name = "", $desp = "", $author = "") 
 	{
 		$query;
-		if ($type == 'album')
+		$typeid;
+		if ($type == 'album') {
 			$query = Album::find();
-		else 
+			$typeid = 0;
+		}
+		else if ($type == 'video') {
 			$query = Video::find();
+			$typeid = 1;
+		}
+		else {
+			$query = Message::find();
+			$typeid = 2;
+		}
 
 		$pagination = new Pagination([
 			'defaultPageSize' => 30,
@@ -135,8 +145,9 @@ class SiteController extends Controller
 			->offset($pagination->offset)
 			->limit($pagination->limit);
 			//->asArray()
+		//
 
-		$catQuery = Category::find()->joinWith("categoryRelationship")->andWhere(['bnm_category_relationships.type' => $type == 'album' ? 0 : 1])->distinct();
+		$catQuery = Category::find()->joinWith("categoryRelationship")->andWhere(['bnm_category_relationships.type' => $typeid])->distinct();
 		return $this->render('media', [
 			'media' => $query->all(),
 			'categories' => $catQuery->all(),
@@ -147,6 +158,7 @@ class SiteController extends Controller
 			'oldOrder' => ['order' => $order, 'asc' => $asc],
 			'oldSearch' => ['name' => $name, 'desp' => $desp, 'author' => $author],
 			'type' => $type,
+			'typeid' => $typeid,
 			'asc' => $asc,
 			'order' => $order,
 			'name' => $name,
@@ -163,5 +175,10 @@ class SiteController extends Controller
 	public function actionVideo($cat = 0, $order = 'date',$asc = "desc", $name = "", $desp = "", $author = "")
 	{
 		return $this->actionMedia('video', $cat, $order, $asc, $name, $desp, $author);
+	}
+
+	public function actionMessage($cat = 0, $order = 'date',$asc = "desc", $name = "", $desp = "", $author = "")
+	{
+		return $this->actionMedia('message', $cat, $order, $asc, $name, $desp, $author);
 	}
 }

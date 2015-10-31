@@ -9,11 +9,11 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
 
-$this->title = $type == 'album' ? '图库' : '视频';
+$this->title = ['图库','视频','手机报'][$typeid];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<div class="site-media">
+	<div class="site-media site-<?php echo $type;?>">
 
 <form class="form-inline search clear" action="<?=Url::to(['site/' . $type])?>">
 	<input type="hidden" name="r" value="site/<?=$type?>">
@@ -71,7 +71,11 @@ echo Html::a("日期", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type
 <ul class="clear media-list">
 <?php foreach ($media as $item): ?>
 	<li>
+<?php if ($type == 'message') : ?>
+		<a href="<?= Url::to($item->url)?>">
+<?php else : ?>
 		<a href="<?= Url::toRoute([$type . '/view', 'id' => $item->ID])?>">
+<?php endif; ?>
 			<div class="media-content">
 				<?=Html::img($item->thumbnail, ['alt' => 'pic']) ?>
 				<div class="media-header"><?= Html::encode("{$item->name}") ?></div>
