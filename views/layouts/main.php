@@ -53,10 +53,7 @@ echo Nav::widget([
 			['label' => '分类', 'url' => ['/category/index'], 'visible' => !Yii::$app->user->isGuest],
 			['label' => '用户', 'url' => ['/user/index'], 'visible' => !Yii::$app->user->isGuest && Yii::$app->user->identity->auth == 1],
 		], 'visible' => !Yii::$app->user->isGuest],
-		['label' => '新媒体', 'items' => [
-			//['label' => '手机报', 'url' => 'http://news.bnu.edu.cn/sjb/71882.htm', 'linkOptions' => ['target' => '_blank']],
-			['label' => '京师学人', 'url' => 'http://read.douban.com/people/49884010/', 'linkOptions' => ['target' => '_blank']]
-		]],
+		['label' => '京师学人', 'url' => 'http://read.douban.com/people/49884010/', 'linkOptions' => ['target' => '_blank']],
 		['label' => '关于我们', 'url' => ['/site/about']],
 		Yii::$app->user->isGuest ?
 		['label' => '登录后台', 'url' => ['/site/login']] :
@@ -106,7 +103,8 @@ NavBar::end();
 				<h4><a href="http://media.bnu.edu.cn/BSNews.apk" target="_blank">北京师范大学App</a></h4>
 			</div>
 			<p class="pull-right">
-内容维护：北京师范大学新闻中心 融媒体中心
+内容维护：北京师范大学新闻中心 融媒体中心<br>
+网站建设：<a href="http://xuhongxu.cn" target="_blank">北师大信科 2014级本科生 许宏旭</a>
 <br>
 <br>
 <strong>联系方式</strong>
