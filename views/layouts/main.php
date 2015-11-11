@@ -110,7 +110,7 @@ NavBar::end();
 			</div>
 			<p class="pull-right">
 内容维护：北京师范大学新闻中心 融媒体中心<br>
-网站建设：<a href="http://xuhongxu.cn" target="_blank">北师大信科 2014级本科生 许宏旭</a>
+网站建设：<a href="http://xuhongxu.cn" target="_blank">北师大信科 2014级本科 许宏旭</a>
 <br>
 <br>
 <strong>联系方式</strong>

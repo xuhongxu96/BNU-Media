@@ -47,7 +47,6 @@ echo Carousel::widget([
     </div>
 </div>
 <script type="text/javascript">
-console.log("开发者\n\n北京师范大学\n信息科学与技术学院\n计算机科学与技术专业\n2014级\n许宏旭\nhttp://xuhongxu.cn");
 function vrImgHandle552(that,width,height){
  	calImg();
 	function calImg (){

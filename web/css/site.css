@@ -5,6 +5,7 @@ body {
 	min-width: 320px;
 	background: #fff8f8;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .wrap {
