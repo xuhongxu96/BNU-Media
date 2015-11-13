@@ -136,7 +136,6 @@ class SiteController extends Controller
 
 		$query->joinWith("editor");
 
-
 		$query->andFilterWhere(['like', 'bnm_media.name', $name]);
 		$query->andFilterWhere(['like', 'bnm_media.desp', $desp]);
 

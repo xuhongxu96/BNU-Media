@@ -84,7 +84,9 @@ echo Html::a("日期", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type
 			</div>
 			<div class="media-meta">
 				作者：<?= Html::encode("{$item->author}") ?> 
-				<time><?= Html::encode("{$item->date}") ?></time>
+				<time><?= Html::encode(date("Y-m-d",strtotime($item->date)) ) ?>
+				<span style="font-size: 0.8em;color:#666"><?= Html::encode("{$item->editor->name}") ?> 编辑</span>
+</time>
 			</div>
 		</a>
 		<div class="categories">

@@ -469,26 +469,25 @@ img {
 }
 .site-message .media-list > li > a,
 .site-message .media-list > li {
-	width: 20em;
+	width: 19em;
 }
 .site-message .media-list > li > a {
 	height: 14em;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 599px) {
 	.site-message .media-list > li {
-		left: 50%;
-		margin-left: -13em;
-		margin-right: 13em;
+		float: none;
+		margin: 1.9em auto;
 	}
 }
-@media only screen and (max-width: 1199px) and (min-width: 992px) {
+@media only screen and (max-width: 991px) and (min-width: 600px) {
 	.site-message .media-list {
 		padding-left: 50%;
 		width: 150%;
 	}
 	.site-message .media-list > li {
-		margin-left: -27em;
-		margin-right: 28em;
+		margin-left: -20em;
+		margin-right: 21em;
 	}
 }
