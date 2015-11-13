@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		'thumbnail:image',
 		'name',
 		'desp',
-		['attribute' => 'author', 'label' => '作者', 'value' => 'author.name'],
+		['attribute' => 'author', 'label' => '作者', 'value' => 'author'],
 		'date',
 		['attribute' => 'category', 'label' => '分类', 'value' => 'categories'],
 

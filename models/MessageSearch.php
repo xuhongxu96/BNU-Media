@@ -13,7 +13,7 @@ use app\models\Message;
 class MessageSearch extends Message
 {
 
-	public $author;
+	public $editor;
 	/**
 	 * @inheritdoc
 	 */
@@ -21,7 +21,7 @@ class MessageSearch extends Message
 	{
 		return [
 			[['ID', 'user', 'type'], 'integer'],
-			[['name', 'desp', 'url', 'thumbnail', 'date', 'author'], 'safe'],
+			[['name', 'desp', 'url', 'thumbnail', 'date', 'editor', 'author'], 'safe'],
 		];
 	}
 
@@ -45,13 +45,13 @@ class MessageSearch extends Message
 	{
 		$query = Message::find();
 
-		$query->joinWith(['author']);
+		$query->joinWith(['editor']);
 
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 		]);
 
-		$dataProvider->sort->attributes['author'] = [
+		$dataProvider->sort->attributes['editor'] = [
 			'asc' => ['bnm_users.name' => SORT_ASC]
 		];
 		$this->load($params);
@@ -71,8 +71,9 @@ class MessageSearch extends Message
 
 		$query->andFilterWhere(['like', 'bnm_media.name', $this->name])
 			->andFilterWhere(['like', 'desp', $this->desp])
+			->andFilterWhere(['like', 'author', $this->author])
 			->andFilterWhere(['like', 'url', $this->url])
-			->andFilterWhere(['like', 'bnm_users.name', $this->author])
+			->andFilterWhere(['like', 'bnm_users.name', $this->editor])
 			->andFilterWhere(['like', 'thumbnail', $this->thumbnail]);
 
 		return $dataProvider;

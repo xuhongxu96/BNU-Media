@@ -134,12 +134,11 @@ class SiteController extends Controller
 		}
 
 
-		$query->joinWith("author");
+		$query->joinWith("editor");
 
 
 		$query->andFilterWhere(['like', 'bnm_media.name', $name]);
 		$query->andFilterWhere(['like', 'bnm_media.desp', $desp]);
-		$query->andFilterWhere(['like', 'bnm_users.name', $author]);
 
 		$query->orderBy($order . ' ' . $asc)
 			->offset($pagination->offset)

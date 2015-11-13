@@ -65,7 +65,7 @@ if (count($catArr))
 <?php
 $tasc = $asc == 'asc' ? 'desc' : 'asc';
 echo Html::a("名称", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type, 'order' => 'name', 'asc' => $tasc])), ['class' => $order == 'name' ? 'active' : '']);
-echo Html::a("作者", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type, 'order' => 'bnm_users.name', 'asc' => $tasc])), ['class' => $order == 'bnm_users.name' ? 'active' : '']);
+echo Html::a("作者", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type, 'order' => 'author', 'asc' => $tasc])), ['class' => $order == 'author' ? 'active' : '']);
 echo Html::a("日期", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type, 'order' => 'date', 'asc' => $tasc])), ['class' => $order == 'date' ? 'active' : '']);
 ?>
 </div>
@@ -83,7 +83,7 @@ echo Html::a("日期", Url::to(array_merge($oldCat, $oldSearch, ['site/' . $type
 				<p><?= Html::encode(StringHelper::truncate("{$item->desp}", 35, '...')) ?></p>
 			</div>
 			<div class="media-meta">
-				作者：<?= Html::encode("{$item->author->name}") ?> 
+				作者：<?= Html::encode("{$item->author}") ?> 
 				<time><?= Html::encode("{$item->date}") ?></time>
 			</div>
 		</a>

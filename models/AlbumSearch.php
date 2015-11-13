@@ -13,7 +13,7 @@ use app\models\Album;
 class AlbumSearch extends Album
 {
 
-	public $author;
+	public $editor;
 	/**
 	 * @inheritdoc
 	 */
@@ -21,7 +21,7 @@ class AlbumSearch extends Album
 	{
 		return [
 			[['ID', 'user', 'type'], 'integer'],
-			[['name', 'desp', 'url', 'thumbnail', 'date', 'author'], 'safe'],
+			[['name', 'desp', 'url', 'author', 'thumbnail', 'date', 'editor'], 'safe'],
 		];
 	}
 
@@ -45,13 +45,13 @@ class AlbumSearch extends Album
 	{
 		$query = Album::find();
 
-		$query->joinWith(['author']);
+		$query->joinWith(['editor']);
 
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 		]);
 
-		$dataProvider->sort->attributes['author'] = [
+		$dataProvider->sort->attributes['editor'] = [
 			'asc' => ['bnm_users.name' => SORT_ASC]
 		];
 		$this->load($params);
@@ -71,8 +71,9 @@ class AlbumSearch extends Album
 
 		$query->andFilterWhere(['like', 'bnm_media.name', $this->name])
 			->andFilterWhere(['like', 'desp', $this->desp])
+			->andFilterWhere(['like', 'author', $this->author])
 			->andFilterWhere(['like', 'url', $this->url])
-			->andFilterWhere(['like', 'bnm_users.name', $this->author])
+			->andFilterWhere(['like', 'bnm_users.name', $this->editor])
 			->andFilterWhere(['like', 'thumbnail', $this->thumbnail]);
 
 		return $dataProvider;

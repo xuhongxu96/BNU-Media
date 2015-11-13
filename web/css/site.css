@@ -464,12 +464,12 @@ img {
 }
 
 .site-message .media-list img {
-	width: 98%;
+	width: 80%;
 	height: 8em;
 }
 .site-message .media-list > li > a,
 .site-message .media-list > li {
-	width: 26em;
+	width: 20em;
 }
 .site-message .media-list > li > a {
 	height: 14em;

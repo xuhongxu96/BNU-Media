@@ -40,7 +40,8 @@ class Media extends \yii\db\ActiveRecord
 			[['user', 'type'], 'integer'],
 			[['date'], 'safe'],
 			[['name', 'desp', 'thumbnail'], 'string', 'max' => 200],
-			[['url'], 'string', 'max' => 300]
+			[['url'], 'string', 'max' => 300],
+			[['author'], 'string', 'max' => 100]
 		];
 	}
 
@@ -55,7 +56,8 @@ class Media extends \yii\db\ActiveRecord
 			'desp' => '描述',
 			'url' => '原图',
 			'thumbnail' => '缩略图',
-			'user' => '作者',
+			'user' => '编辑',
+			'author' => '作者',
 			'date' => '日期',
 			'type' => '类型',
 			'categories' => '分类',
@@ -74,7 +76,7 @@ class Media extends \yii\db\ActiveRecord
 	/**
 	 * @return \yii\db\ActiveQuery
 	 */
-	public function getAuthor()
+	public function getEditor()
 	{
 		return $this->hasOne(User::className(), ['ID' => 'user']);
 	}

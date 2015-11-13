@@ -41,13 +41,14 @@ class Video extends Media
 			'url' => '视频链接',
 			'imageFile' => '缩略图',
 			'author' => '作者',
+			'editor' => '编辑',
 			'category' => '分类',
 		]);
 	}
 
 	public static function find()
 	{
-		return (new ActiveQuery(get_called_class()))->with('author')->andWhere(['bnm_media.type' => 1]);
+		return (new ActiveQuery(get_called_class()))->with('editor')->andWhere(['bnm_media.type' => 1]);
 	}
 
 	public function upload()

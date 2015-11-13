@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'desp')->textInput(['maxlength' => true]) ?>
 
+	<?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+
 	<?= $form->field($model, 'imageFile')->fileInput() ?>
 
 	<?= $form->field($model, 'categoryID')->checkboxList(\yii\helpers\ArrayHelper::map(Category::find()->asArray()->all(), 'ID', 'name')) ?>

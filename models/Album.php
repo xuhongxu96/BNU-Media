@@ -41,6 +41,7 @@ class Album extends Media
 	{
 		return array_merge(parent::attributeLabels(), [
 			'imageFile' => '图片',
+			'editor' => '编辑',
 			'author' => '作者',
 			'category' => '分类',
 		]);
@@ -48,7 +49,7 @@ class Album extends Media
 
 	public static function find()
 	{
-		return (new ActiveQuery(get_called_class()))->with('author')->andWhere(['bnm_media.type' => 0]);
+		return (new ActiveQuery(get_called_class()))->with('editor')->andWhere(['bnm_media.type' => 0]);
 	}
 
 	public function upload()
