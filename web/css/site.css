@@ -475,6 +475,27 @@ img {
 	height: 15em;
 }
 
+@media only screen and (max-width: 992px) {
+	.footer .container > p {
+		clear: both;
+		display: block;
+		float: none!important;
+		margin: 1.9em auto;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 620px) {
+	.footer .show {
+		float: none!important;
+		margin: 1.9em auto;
+	}
+}
+@media only screen and (max-width: 380px) {
+	.media-list > li {
+		float: none;
+		margin: 1.9em auto;
+	}
+}
 @media only screen and (max-width: 599px) {
 	.site-message .media-list > li {
 		float: none;

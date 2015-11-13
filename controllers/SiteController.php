@@ -67,9 +67,10 @@ class SiteController extends Controller
 		$sogou = file_get_contents("http://weixin.sogou.com/weixin?query=%E5%8C%97%E4%BA%AC%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6");
 		$pattern = '/ href="\/gzh\?openid=oIWsFtwcqc8F1tKXjaSc5lyW4rVo&amp;ext=(.*)" target/';
 		preg_match($pattern, $sogou, $matches);
+		$ext = $matches[1];
 		return $this->render('index', [
 			'slider' => $slider,
-			'ext' => $matches[1],
+			'ext' => $ext,
 		]);
 	}
 
