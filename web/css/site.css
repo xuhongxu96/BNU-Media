@@ -4,7 +4,6 @@ body {
     height: 100%;
 	min-width: 320px;
 	background: #fff8f8;
-	overflow-x: hidden;
 	overflow-y: auto;
 }
 
@@ -512,3 +511,12 @@ img {
 		margin-right: 21em;
 	}
 }
+
+.message-index table td a {
+	max-width: 300px;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+

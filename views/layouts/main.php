@@ -39,6 +39,15 @@ AppAsset::register($this);
 <!-- 个人主页：http://xuhongxu.cn -->
 
 <?php $this->beginBody() ?>
+<!--[if lte IE 7]>
+<div class="alert alert-warning alert-dismissible" role="alert" style="position: fixed;z-index: 99999;">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>浏览器版本过低!</strong> 请开启国产浏览器的<strong class="text-danger">极速模式</strong>，或更换更先进的<a href="http://browsehappy.com/">现代浏览器</a>！
+</div>
+<div class="back" style="pointer-events:none;position:absolute;top:0;left:0;right:0;bottom:0;background:black;z-index:99998;filter:alpha(opacity=80);opacity:.8;">
+</div>
+<![endif]-->
+
 	<div class="wrap">
 <?php
 NavBar::begin([

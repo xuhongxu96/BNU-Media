@@ -11,7 +11,7 @@ echo Carousel::widget([
 		],
 ]);
 ?>
-<div class="site-index container">
+<div class="site-index container" style="overflow-x:hidden;">
     <div class="body-content">
 
         <div class="text-center row">
