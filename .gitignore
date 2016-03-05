@@ -1,3 +1,4 @@
+*.swp
 composer.lock
 config/db.php
 web/uploads/

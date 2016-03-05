@@ -11,7 +11,10 @@ return [
     'bootstrap' => ['log', 'gii'],
     'controllerNamespace' => 'app\commands',
     'modules' => [
-        'gii' => 'yii\gii\Module',
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['127.0.0.1', '::1', '192.168.10.*'] // adjust this to your needs
+        ]
     ],
     'components' => [
         'cache' => [

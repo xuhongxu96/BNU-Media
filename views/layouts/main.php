@@ -61,15 +61,18 @@ echo Nav::widget([
 	'options' => ['class' => 'navbar-nav navbar-right'],
 	'items' => [
 		['label' => '主页', 'url' => ['/site/index']],
-		['label' => '图库', 'url' => [Yii::$app->user->isGuest ? '/site/album' : '/album/index']],  
-		['label' => '视频', 'url' => [Yii::$app->user->isGuest ? '/site/video' : '/video/index']],  
-		['label' => '手机报', 'url' => [Yii::$app->user->isGuest ? '/site/message' : '/message/index']],  
+		['label' => '融媒体', 'items' => [
+            ['label' => '图库', 'url' => [Yii::$app->user->isGuest ? '/site/album' : '/album/index']],  
+            ['label' => '视频', 'url' => [Yii::$app->user->isGuest ? '/site/video' : '/video/index']],  
+            ['label' => '手机报', 'url' => [Yii::$app->user->isGuest ? '/site/message' : '/message/index']],  
+        ]],
 		['label' => '管理', 'items' => [
 			['label' => '分类', 'url' => ['/category/index'], 'visible' => !Yii::$app->user->isGuest],
 			['label' => '用户', 'url' => ['/user/index'], 'visible' => !Yii::$app->user->isGuest && Yii::$app->user->identity->auth == 1],
 		], 'visible' => !Yii::$app->user->isGuest],
 		['label' => '京师学人', 'url' => 'http://read.douban.com/people/49884010/', 'linkOptions' => ['target' => '_blank']],
 		['label' => '关于我们', 'url' => ['/site/about']],
+		['label' => '采访申报', 'url' => [Yii::$app->user->isGuest ? '/site/interview' : '/interview/index']],
 		Yii::$app->user->isGuest ?
 		['label' => '登录后台', 'url' => ['/site/login']] :
 		[

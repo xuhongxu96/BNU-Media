@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 use yii\bootstrap\Carousel;
+use yii\helpers\url;
 
 $this->title = '主页';
 $this->params['no_container'] = true;
@@ -29,7 +30,7 @@ echo Carousel::widget([
 					北京师范大学校友会微博
 					</a></li>
 					<li><a href="http://weibo.com/bnucist" target="_blank">
-					<img class="weibo-logo" src="images/2.jpeg">
+					<img class="weibo-logo" src="http://tp4.sinaimg.cn/2709653783/180/5738634862/1">
 					信息科学与技术学院微博
 					</a></li>
 				</ul>
@@ -211,7 +212,8 @@ function bind(ele, evt, func) {
 			if(document.getElementById("upquery"))document.getElementById("upquery").value=name;
 			if(document.getElementById("bottom_form_querytext"))document.getElementById("bottom_form_querytext").value=name;
 			//document.title=name+"的公众号详情页 – 搜狗微信搜索";
-		}
+        } else {
+        }
 	}
 	function cb(data){
 		var items = data.items,page = data.page,total = data.totalPages;
@@ -234,6 +236,7 @@ function bind(ele, evt, func) {
 			jlist.insertBefore(newNode,null);
 		}else{
 			if(pagenum==1){
+                window.location.href = '<?php echo Url::toRoute(['site/index', 'refresh' => true]); ?>';
 				var html = '<h4 class="zj-tit"><span>该公众号暂未发布文章</span></h4>';
 				var newNode = document.createElement("div");
 				newNode.innerHTML =html;
