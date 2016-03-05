@@ -24,7 +24,7 @@ class InterviewController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            /*'access' => [
+            'access' => [
                 'class' => AccessControl::className(),
                     'except' => ['create'],
                     'rules' => [
@@ -33,7 +33,7 @@ class InterviewController extends Controller
                             'roles' => ['@'],
                         ]
                     ]
-                ],*/
+                ],
         ];
     }
 
@@ -74,7 +74,10 @@ class InterviewController extends Controller
         $model = new Interview();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if (Yii::$app->user->isGuest)
+                return $this->redirect(['/site/interview']);
+            else
+                return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

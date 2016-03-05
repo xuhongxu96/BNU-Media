@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Interview */
 
 $this->title = '申请新闻采访';
-$this->params['breadcrumbs'][] = ['label' => '新闻采访', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '新闻采访', 'url' => [Yii::$app->user->isGuest ? '/site/interview' : '/interview/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="interview-create">

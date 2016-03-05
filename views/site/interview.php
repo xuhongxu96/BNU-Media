@@ -15,7 +15,7 @@ $this->title = '新闻采访';
         <h3>已回复</h3>
         <div class="list-group">
 <?php foreach ($replied_interviews as $item) :?>
-            <a href="#" class="list-group-item">
+            <a href="#" class="list-group-item clearfix">
 
                 <h4 class="list-group-item-heading"><?php echo $item->name; ?> （<?php echo $item->unit;?> 主办）</h4>
 
@@ -30,12 +30,13 @@ $this->title = '新闻采访';
                     <br>
 
                     活动概要：<?php echo $item->summary; ?>
-                    
-                    <br>
+                   
+                    <span class="badge pull-right">提交时间：<?php echo $item->created_at; ?></span>
 
                 </p>
                 <strong>回复</strong>
                 <p class="list-group-item-text text-left text-danger"><?php echo $item->reply; ?></p>
+                <span class="badge pull-right">回复时间：<?php echo $item->updated_at; ?></span>
 
             </a>
 <?php endforeach;?>
@@ -46,7 +47,7 @@ $this->title = '新闻采访';
         <h3>待回复</h3>
         <div class="list-group">
 <?php foreach ($noreply_interviews as $item) :?>
-            <a href="#" class="list-group-item">
+            <a href="#" class="list-group-item clearfix">
 
                 <h4 class="list-group-item-heading"><?php echo $item->name; ?> （<?php echo $item->unit;?> 主办）</h4>
 
@@ -62,7 +63,7 @@ $this->title = '新闻采访';
 
                     活动概要：<?php echo $item->summary; ?>
                     
-                    <br>
+                    <span class="badge pull-right">提交时间：<?php echo $item->created_at; ?></span>
 
                 </p>
             </a>
